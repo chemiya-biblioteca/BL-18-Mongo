@@ -1,0 +1,113 @@
+show dbs
+use nombredatabase para crear o moverse
+db para ver nombre en la que estoy
+
+db.createCollection("nombre")
+show collections, show tables
+
+para insertar:
+{
+"name":"jacinto",
+"age":23,
+"direccion":{"calle":"bodeguilla","numero":8,"ciudad":"malaga"}
+
+
+}
+db.nombre.insert({json de antes})
+db.nombre.find()
+db.nombre.find().pretty()
+
+insertar array:
+[
+{
+"name":"jacinto",
+"age":23,
+"direccion":{"calle":"bodeguilla","numero":8,"ciudad":"malaga"}
+
+
+},
+{
+"name":"jacinto",
+"age":23,
+"direccion":{"calle":"bodeguilla","numero":8,"ciudad":"malaga"}
+
+
+}
+
+
+]
+
+db.nombre.insert([array antes])
+db.nombre.find({Name:"tony"})
+db.nombre.find({Age:35})
+db.nombre.update({Age:35},{$set:{Age:42}})
+db.nombre.find({Age:35}).limit(1)
+db.nombre.deleteOne({Name:"tony"})
+
+comando mongod
+comando mongosh
+
+desde el compass tambien se puede insertar
+
+
+
+
+use blog
+db.createCollection("posts")
+db.posts.insertOne({
+  title: "Post Title 1",
+  body: "Body of post.",
+  category: "News",
+  likes: 1,
+  tags: ["news", "events"],
+  date: Date()
+})
+
+db.posts.insertMany([  
+  {
+    title: "Post Title 2",
+    body: "Body of post.",
+    category: "Event",
+    likes: 2,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Post Title 3",
+    body: "Body of post.",
+    category: "Technology",
+    likes: 3,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Post Title 4",
+    body: "Body of post.",
+    category: "Event",
+    likes: 4,
+    tags: ["news", "events"],
+    date: Date()
+  }
+])
+
+db.posts.find()
+db.posts.find( {category: "News"} )
+db.posts.find({}, {title: 1, date: 1}) solo muestra titulo y data
+db.posts.updateOne( { title: "Post Title 1" }, { $set: { likes: 2 } } ) 
+db.posts.updateMany({}, { $inc: { likes: 1 } })  incrementa todos lo likes 1
+db.posts.deleteOne({ title: "Post Title 5" })
+db.posts.deleteMany({ category: "Technology" })
+
+
+compass crear conexion
+create database
+add data e insert document
+array para tags:
+{
+  "nombre":"play",
+"tags":["electronica","videojuegos"]  
+}
+
+arriba para filtrar: {"nombre":"play"}
+
+
